@@ -10,11 +10,11 @@ class Program:
     self.program_button = Button(self.program_frame, text="Setting", bg="blue", fg="white", font=("Arial", 12, "bold"), command=lambda: to_frame("setting"))
     self.program_button.grid(row=2)
 
-  def to_frame(self, frame_name):
+  def to_frame(frame_name):
     if frame_name == "get start":
-      GetStart(self)
+      GetStart()
     elif frame_name == "setting":
-      Setting(self)
+      Setting()
 class Setting:
   def __init__(self, partner):
     # frames exit's
@@ -26,11 +26,11 @@ class Setting:
     self.setting_frame.configure(bg="#FFFFFF")
     self.setting_frame.grid(padx=30, pady=5)
     # row 0
-    self.setting_heading = Label(self.setting_frame, text="Setting", font=("Arial", 12, "bold"))
+    self.setting_heading = Label(self.setting_frame, text="Setting", font=("Arial", 12, "bold")
     self.setting_heading.grid(row=0)
     # row 1
     setting_text = "Setting"
-    self.setting_instructions = Label(self.setting_frame, text=setting_text, font=("Arial", 12, "bold"))
+    self.setting_instructions = Label(self.setting_frame, text=setting_text, font=("Arial", 12, "bold")
     self.setting_instructions.grid(row=1)
     # row 2
     self.filename_entry = Entry(self.history_frame, font=("Arial", "12"), bg="#ffffff", width=25)
@@ -42,7 +42,7 @@ class Setting:
   def close_setting(self, partner):
     partner.to_setting_button.config(state=NORMAL)
     self.setting_box.destroy()
-
+    
 class GetStart:
   pass
 class Play:
