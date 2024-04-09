@@ -7,8 +7,8 @@ class Program:
     self.program_frame.configure(bg="#FFFFFF")
     self.program_frame.grid(padx=30, pady=5)
     # row 2
-    self.program_button = Button(self.program_frame, text="Setting", bg="blue", fg="white", font=("Arial", 12, "bold"), command=lambda: to_frame("setting"))
-    self.program_button.grid(row=2)
+    self.to_setting_button = Button(self.program_frame, text="Setting", bg="blue", fg="white", font=("Arial", 12, "bold"), command=lambda: self.to_frame("setting"))
+    self.to_setting_button.grid(row=2)
 
   def to_frame(self, frame_name):
     if frame_name == "get start":
@@ -22,7 +22,8 @@ class Setting:
     self.setting_box = Toplevel()
     partner.to_setting_button.config(state=DISABLED)
     self.setting_box.protocol('WM_DELETE_WINDOW', partial(self.close_setting, partner))
-    self.setting_frame = Frame()
+    # setting_box on setting_box for window exiting
+    self.setting_frame = Frame(self.setting_box, width=300, height=200, bg=background)
     self.setting_frame.configure(bg="#FFFFFF")
     self.setting_frame.grid(padx=30, pady=5)
     # row 0
