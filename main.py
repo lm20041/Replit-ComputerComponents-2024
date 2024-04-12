@@ -1,4 +1,5 @@
 import tkinter as tk
+#from tkinter import Toplevel # Temporarily added
 from functools import partial # to prevent unwanted windows
 
 class Window1:
@@ -27,8 +28,8 @@ class Window2:
     background = "#ffe6cc"
     button_font_12 = ("Arial", 12, "bold")
     # window2_box for window exiting
-    self.window2_box = Toplevel()
-    partner.to_window2_button.config(state=DISABLED)
+    self.window2_box = tk.Toplevel()
+    partner.to_window2_button.config(state=tk.DISABLED)
     self.window2_box.protocol('WM_DELETE_WINDOW', partial(self.close_window2, partner))
     # Create the parent frame on window exiting
     self.parent_frame2 = tk.Frame(self.window2_box, bg="lightblue")
